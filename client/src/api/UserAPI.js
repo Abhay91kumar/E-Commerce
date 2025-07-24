@@ -14,7 +14,7 @@ const UserAPI = (token) => {
         if (token) {
             const getUser = async () => {
                 try {
-                    const res = await axios.get('/user/information', {
+                    const res = await axios.get('https://e-commerce-1hzr.onrender.com/user/information', {
                         headers: { Authorization: token }
                     })
                     setIsLogged(true)
