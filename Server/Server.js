@@ -24,7 +24,7 @@ app.use('/api', require('./routes/uploadRouter'))
 
 //Connect MongoDB
 
-const uri = process.env.URL;
+const uri = process.env.URI;
 //console.log("Env",process.env.URL)
 mongoose.connect(uri, {
     //  useCreateIndex: true,
