@@ -33,7 +33,7 @@ const UserAPI = (token) => {
 
     const updateCartToBackend = async () => {
         if (token) {
-            await axios.patch('/user/addcart', { cart }, {
+            await axios.patch('https://e-commerce-1hzr.onrender.com/user/addcart', { cart }, {
                 headers: { Authorization: token }
             });
         }
