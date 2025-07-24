@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npx node server.js"
   },
   "dependencies": {
     "cloudinary": "^2.7.0",
