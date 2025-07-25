@@ -6,8 +6,8 @@ import Moblie from './Product/Mobile'
 import Fashion from './Product/Fashion';
 import Cart from './Cart/Cart'
 import Login from './Login/Login'
-import DetailProducts from './Utils/DetailProduct/DetailProducts';
 import Register from './Login/Register';
+import DetailPage from './Utils/DetailPages/DetailPage';
 
 const Page = () => {
   return (
@@ -19,7 +19,7 @@ const Page = () => {
      <Route path='/cart' element={<Cart/>} />
      <Route path='/login' element={<Login/>} />
      <Route path='/register' element={<Register/>} />
-    <Route path="/detail/:id" element={<DetailProducts />} />
+    <Route path="/detail/:id" element={<DetailPage />} />
     </Routes>
   )
 }

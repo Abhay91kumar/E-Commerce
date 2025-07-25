@@ -1,0 +1,43 @@
+.home-slider-container {
+    overflow-x: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.home-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+}
+
+.home-card {
+    min-width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.home-card:hover {
+    transform: scale(1.03);
+}
+
+.home-box h2 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+}
+
+.home-box span {
+    color: green;
+    font-weight: bold;
+}
+
+.home-box p {
+    font-size: 0.9rem;
+    color: #666;
+}

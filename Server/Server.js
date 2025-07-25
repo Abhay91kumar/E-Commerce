@@ -15,16 +15,19 @@ app.listen(Port, () => {
     console.log('Server is Running....')
 })
 
-
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
 
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/categoryRouter'))
 app.use('/api', require('./routes/productRouter'))
+app.use('/api', require('./routes/fashionRouter'))
 app.use('/api', require('./routes/uploadRouter'))
 
 //Connect MongoDB
 
-const uri = process.env.URL;
+const uri = process.env.URI;
 //console.log("Env",process.env.URL)
 mongoose.connect(uri, {
     //  useCreateIndex: true,

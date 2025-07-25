@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
-    product_id: {
+const fashionSchema = new mongoose.Schema({
+    fashion_id: {
         type: String,
         trim: true,
         unique: true,
@@ -18,10 +18,6 @@ const productSchema = new mongoose.Schema({
         require: true
     },
     description: {
-        type: String,
-        require: true
-    },
-    contain: {
         type: String,
         require: true
     },
@@ -45,4 +41,4 @@ const productSchema = new mongoose.Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Fashion', fashionSchema);

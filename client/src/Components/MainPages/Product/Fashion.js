@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { GlobalState } from '../../../GlobalState';
+import FashionCard from '../Utils/FashionCard';
 
 const Fashion = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const state = useContext(GlobalState);
+  const [fashions] = state.fashionAPI.fashions;
 
-export default Fashion
+  return (
+    <div className="fashion-container">
+      {fashions.map(fashion => (
+        <FashionCard key={fashion._id} fashion={fashion} />
+      ))}
+    </div>
+  );
+};
+
+export default Fashion;
