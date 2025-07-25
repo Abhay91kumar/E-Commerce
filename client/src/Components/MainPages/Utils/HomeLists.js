@@ -1,29 +1,25 @@
-// import { useContext } from 'react';
-// import { GlobalState } from '../../../GlobalState';
 import { Link } from 'react-router-dom';
+// import './HomeLists.css'; // Make sure to import this CSS
 
-const HomeLists = ({ product }) => {
+const HomeLists = ({ item }) => {
+  if (!item) return null;
 
-
-    // const state = useContext(GlobalState);
-    // const [products] = state.userAPI.products;
-
-    return (
-        <div className="home-slider-container">
-                        <Link to={`/detail/${product._id}`}>
-                            <img src={product.image?.url} alt={product.title} width="85%" height='500px' />
-                        </Link>
-            <div className="home-slider">
-                    <div className="home-card" key={product._id}>
-                        <div className="home-box">
-                            <h2 title={product.title}>{product.title}</h2>
-                            <span>₹ {product.price}</span>
-                            <p>{product.description}</p>
-                        </div>
-                    </div>
-            </div>
+  return (
+    <div className="home-card-wrapper">
+      <Link to={`/detail/${item._id}`} className="home-card-link">
+        <img
+          src={item.image?.url}
+          alt={item.title}
+          className="home-card-img"
+        />
+        <div className="home-card-body">
+          <h3>{item.title}</h3>
+          <p className="home-card-price">₹ {item.price}</p>
+          <p className="home-card-desc">{item.description.slice(0, 60)}...</p>
         </div>
-    );
+      </Link>
+    </div>
+  );
 };
 
 export default HomeLists;

@@ -5,8 +5,9 @@
 @import url(./Components/MainPages/Css/DetailProducts.css);
 @import url(./Components//MainPages//Css//Login.css);
 @import url(./Components//MainPages//Css//Register.css);
-@import url(./Components//MainPages//Css//home.css);
+@import url(./Components//MainPages//Css//Home.css);
 @import url(./Components//MainPages//Css//Fashion.css);
+@import url(./Components//MainPages//Css//Mobile.css);
 
 * {
   margin: 0;

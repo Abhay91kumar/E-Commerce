@@ -20,7 +20,7 @@ const Cart = () => {
           <div className='box_detail'>
             <div className='row'>
               <h2>{item.title}</h2>
-              <h6>{item.product_id || item.fashion_id}</h6>
+              <h6>{item.product_id || item.fashion_id || item.mobile_id}</h6>
             </div>
             <div className='btn-quantity'>
               <button onClick={() => decreaseQty(item)}>-</button>

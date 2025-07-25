@@ -14,7 +14,7 @@ const UserAPI = (token) => {
         if (token) {
             const getUser = async () => {
                 try {
-                    const res = await axios.get('https://e-commerce-1hzr.onrender.com/user/information', {
+                    const res = await axios.get('/user/information', {
                         headers: { Authorization: token }
                     })
                     setIsLogged(true)
@@ -33,7 +33,7 @@ const UserAPI = (token) => {
 
     const updateCartToBackend = async () => {
         if (token) {
-            await axios.patch('https://e-commerce-1hzr.onrender.com/user/addcart', { cart }, {
+            await axios.patch('/user/addcart', { cart }, {
                 headers: { Authorization: token }
             });
         }

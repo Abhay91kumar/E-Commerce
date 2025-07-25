@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { GlobalState } from '../../../GlobalState';
+import MobileCard from '../Utils/MobileCard';
 
 const Mobile = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const state = useContext(GlobalState);
+  const [mobiles] = state.mobileAPI.mobiles;
 
-export default Mobile
+  return (
+    <div className="mobile-container">
+      {mobiles.map(mobile => (
+        <MobileCard key={mobile._id} mobile={mobile} />
+      ))}
+    </div>
+  );
+};
+
+export default Mobile;

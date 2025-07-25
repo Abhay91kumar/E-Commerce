@@ -19,7 +19,7 @@ const [user,setUser]=useState({
   try{
     await axios.post('/user/login',{...user});
     localStorage.setItem("First Login",true);
-    window.location.href="/product"
+    window.location.href="/"
   }catch(err){
     alert(err.response.data.msg)
   }

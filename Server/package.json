@@ -1,16 +1,7 @@
 {
-<<<<<<< HEAD
-  "name": "ecommerce-backend",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-=======
   "name": "backend",
   "version": "1.0.0",
   "main": "server.js",
->>>>>>> 2af541d6cb374e3c64fdbb6e00248207794eceec
   "dependencies": {
     "cloudinary": "^2.7.0",
     "cookie-parser": "^1.4.7",
@@ -21,12 +12,9 @@
     "mongoose": "^8.16.1",
     "multer": "^2.0.1"
   },
-<<<<<<< HEAD
-=======
   "scripts": {
     "start": "node server.js"
   },
->>>>>>> 2af541d6cb374e3c64fdbb6e00248207794eceec
   "devDependencies": {
     "nodemon": "^3.1.10"
   }

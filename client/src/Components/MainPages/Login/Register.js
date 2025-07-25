@@ -23,7 +23,7 @@ const [user,setUser]=useState({
     await axios.post('/user/register',{...user});
     
     localStorage.setItem('First Register',true);
-    window.location.href="/product"
+    window.location.href="/"
   }catch(err){
     alert(err.response.data.msg)
   }

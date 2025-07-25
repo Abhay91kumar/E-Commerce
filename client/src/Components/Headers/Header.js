@@ -1,5 +1,6 @@
 // import React, { useState } from 'react';
 import React, { useContext, useState } from 'react';
+import Search from './Search';
 import { MdOutlineMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
@@ -79,7 +80,7 @@ const Header = () => {
 
       <div className='search-cart'>
         <div className='search-box'>
-          <input type='text' placeholder='Search products...' />
+          <Search/>
         </div>
         {/* <div className='cart-icon'>
           <span>0</span>

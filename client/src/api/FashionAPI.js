@@ -8,7 +8,7 @@ const FashionAPI = () => {
     const getFashions = async () => {
         try {
             const res = await axios.get('/api/fashion');
-            console.log('Fashion:', res.data);
+            // console.log('Fashion:', res.data);
             setFashions(res.data.fashions); 
         } catch (err) {
             console.error('Error fetching fashion data:', err);
