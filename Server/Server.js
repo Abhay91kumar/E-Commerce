@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookiesParser=require('cookie-parser')
+const cors = require('cors');
+app.use(cors());
+
 
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
@@ -18,6 +21,15 @@ app.listen(Port, () => {
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
+<<<<<<< HEAD
+=======
+const cors = require('cors');
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://your-frontend.netlify.app'],
+  credentials: true
+}));
+
+>>>>>>> 2af541d6cb374e3c64fdbb6e00248207794eceec
 
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/categoryRouter'))
