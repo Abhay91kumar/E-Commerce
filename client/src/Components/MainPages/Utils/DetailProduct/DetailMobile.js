@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalState } from '../../../../GlobalState';
-// import './DetailMobile.css';
+
 
 const DetailMobile = ({ mobile }) => {
   const state = useContext(GlobalState);
+  const [isAdmin] = state.userAPI.isAdmin;
   const addCart = state.userAPI.addCart;
 
   if (!mobile) return null;
@@ -40,10 +41,13 @@ const DetailMobile = ({ mobile }) => {
 
         <p className='sold-count'>Sold: {mobile.sold || 0}</p>
 
-        <div className='row_btn'>
-          <Link id='btn-add' to='/cart' onClick={() => addCart(mobile)}>Add to cart</Link>
-          <Link id='btn_buy' to={`#!`}>Buy Now</Link>
-        </div>
+        {isAdmin ? <></> :
+          <>
+            <div className='row_btn'>
+              <Link id='btn-add' to='/cart' onClick={() => addCart(mobile)}>Add to cart</Link>
+              <Link id='btn_buy' to={`#!`}>Buy Now</Link>
+            </div>
+          </>}
       </div>
     </div>
   );

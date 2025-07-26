@@ -1,11 +1,12 @@
-import {useContext}from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalState } from '../../../../GlobalState';
 
 const DetailProducts = ({ product }) => {
   const state = useContext(GlobalState);
-  const addCart= state.userAPI.addCart;
-  
+  const [isAdmin] = state.userAPI.isAdmin;
+  const addCart = state.userAPI.addCart;
+
   if (!product) return null;
 
   return (
@@ -19,10 +20,13 @@ const DetailProducts = ({ product }) => {
         <span>₹ {product.price}</span>
         <p>{product.description}</p>
         <p className='sold-count'>Sold: {product.sold}</p>
-        <div className='row_btn'>
-          <Link id='btn-add' to='/cart' onClick={() => addCart(product)}>Add to cart</Link>
-          <Link id='btn_buy' to={`#!`}>Buy Now</Link>
-        </div>
+        {isAdmin ? <></> :
+          <>
+            <div className='row_btn'>
+              <Link id='btn-add' to='/cart' onClick={() => addCart(product)}>Add to cart</Link>
+              <Link id='btn_buy' to={`#!`}>Buy Now</Link>
+            </div>
+          </>}
       </div>
     </div>
   );

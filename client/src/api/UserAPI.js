@@ -6,7 +6,7 @@ const UserAPI = (token) => {
     const [isLogged, setIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [cart, setCart] = useState(() => {
-        const storedCart = localStorage.getItem('cart');
+    const storedCart = localStorage.getItem('cart');
         return storedCart ? JSON.parse(storedCart) : [];
     });
 

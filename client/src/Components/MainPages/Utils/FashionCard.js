@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import BtnRender from './BtnRender';
 import { GlobalState } from '../../../GlobalState';
 import { Link } from 'react-router-dom';
 
@@ -9,11 +8,7 @@ const FashionCard = ({ fashion }) => {
 
   return (
     <div className="fashion-card">
-      {isAdmin && (
-        <input type="checkbox" checked={fashion.checked} />
-      )}
-
-      <Link to={`/detail/${fashion._id}`}>
+      <Link to=''>
         <img src={fashion.image?.url} alt={fashion.title} width="100" />
       </Link>
 
@@ -23,7 +18,14 @@ const FashionCard = ({ fashion }) => {
         <p>{fashion.description}</p>
       </div>
 
-      <BtnRender product={fashion} />
+      <div className='row_btn'>
+            {
+                isAdmin ? <>
+                    <Link id='btn_buy' to={`/delete/${fashion._id}`} >Delete</Link>
+                    <Link id='btn_view' to={`/edit/${fashion._id}`} >Edit</Link>
+                </> :<></>
+            }
+        </div>
     </div>
   );
 };

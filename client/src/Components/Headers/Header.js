@@ -1,7 +1,7 @@
-// import React, { useState } from 'react';
 import React, { useContext, useState } from 'react';
 import Search from './Search';
 import { MdOutlineMenu } from "react-icons/md";
+import { MdAdminPanelSettings } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { Link } from 'react-router-dom';
@@ -19,7 +19,7 @@ const Header = () => {
 
   const [isLogged] = state.userAPI.isLogged;
   const [isAdmin] = state.userAPI.isAdmin;
-  const [cart,setCart]=state.userAPI.cart
+  const [cart, setCart] = state.userAPI.cart
 
   // console.log("Product Header:", state)
   const logOutUser = async () => {
@@ -27,7 +27,7 @@ const Header = () => {
       await axios.get('/user/logout');
       localStorage.removeItem('First Login');
       localStorage.removeItem('cart')
-      setCart([]); 
+      setCart([]);
       window.location.href = '/';
       alert("LogOut Successeful ?")
     } catch (err) {
@@ -66,7 +66,6 @@ const Header = () => {
       <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
         <ul>
           <li><Link to='/'>Home</Link></li>
-          {/* <li><Link to='/product'>Product</Link></li> */}
           <li><Link to='/product'>{isAdmin ? 'Product' : 'Shop'}</Link></li>
           <li><Link to='/mobile'>Mobile & Tablet</Link></li>
           <li><Link to='/fashion'>Fashion</Link></li>
@@ -74,19 +73,20 @@ const Header = () => {
           {
             isLogged ? loggedRouter() : <li><Link to='/login'>Login / Register</Link></li>
           }
-          {/* <li><Link to='/login'>Login / Register</Link></li> */}
         </ul>
       </nav>
 
       <div className='search-cart'>
         <div className='search-box'>
-          <Search/>
+          <Search />
         </div>
-        {/* <div className='cart-icon'>
-          <span>0</span>
-          <Link to='/cart'><MdOutlineAddShoppingCart size={26} /></Link></div> */}
         {
-          isAdmin ? '' : <div className='cart-icon'>
+          isAdmin ? (
+            <Link to="/admin/dashboard" className="admin-link">
+              <MdAdminPanelSettings size={20} style={{ marginRight: '6px' }} />
+              Dashboard
+            </Link>
+          ) : <div className='cart-icon'>
             <span>{cart.length}</span>
             <Link to='/cart'><MdOutlineAddShoppingCart size={26} /></Link>
           </div>

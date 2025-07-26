@@ -38,6 +38,15 @@ class APIfeatures {
 }
 
 const mobileCtrl = {
+    getMobileById: async (req, res) => {
+        try {
+            const item = await Mobile.findById(req.params.id); // _id based
+            if (!item) return res.status(404).json({ msg: 'Mobile not found' });
+            res.json(item);
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
     getMobiles: async (req, res) => {
         try {
             const features = new APIfeatures(Mobile.find(), req.query)

@@ -6,6 +6,7 @@ router.route('/fashion')
     .post(fashionCtrl.createFashion)
 
 router.route('/fashion/:id')
+    .get(fashionCtrl.getFashionById)
     .delete(fashionCtrl.deleteFashion)
     .put(fashionCtrl.updateFashion)
 

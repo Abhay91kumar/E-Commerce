@@ -7,6 +7,7 @@ router.route('/mobile')
     .post(mobileCtrl.createMobile);
 
 router.route('/mobile/:id')
+    .get(mobileCtrl.getMobileById)
     .delete(mobileCtrl.deleteMobile)
     .put(mobileCtrl.updateMobile);
 

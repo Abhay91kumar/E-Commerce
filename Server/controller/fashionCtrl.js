@@ -43,6 +43,15 @@ class APIfeatures {
 }
 
 const fashionCtrl = {
+    getFashionById: async (req, res) => {
+        try {
+            const item = await Fashion.findById(req.params.id);
+            if (!item) return res.status(404).json({ msg: 'Fashion item not found' });
+            res.json(item);
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
     getFashion: async (req, res) => {
         try {
             const features = new APIfeatures(Fashion.find(), req.query)

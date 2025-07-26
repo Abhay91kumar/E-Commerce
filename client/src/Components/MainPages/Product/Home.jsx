@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalState } from '../../../GlobalState';
 import HomeLists from '../Utils/HomeLists';
-// import './Home.css'; // Import this new CSS file
 
 const Home = () => {
   const state = useContext(GlobalState);

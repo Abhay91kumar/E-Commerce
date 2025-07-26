@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import './HomeLists.css'; // Make sure to import this CSS
+
 
 const HomeLists = ({ item }) => {
   if (!item) return null;

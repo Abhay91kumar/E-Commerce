@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import BtnRender from './BtnRender';
 import { GlobalState } from '../../../GlobalState';
 import { Link } from 'react-router-dom';
 
@@ -9,11 +8,8 @@ const MobileCard = ({ mobile }) => {
 
   return (
     <div className="mobile-card">
-      {isAdmin && (
-        <input type="checkbox" checked={mobile.checked} />
-      )}
 
-      <Link to={`/detail/${mobile._id}`}>
+      <Link to=''>
         <img src={mobile.image?.url} alt={mobile.title} width="100" />
       </Link>
 
@@ -23,7 +19,14 @@ const MobileCard = ({ mobile }) => {
         <p>{mobile.description}</p>
       </div>
 
-      <BtnRender product={mobile} />
+      <div className='row_btn'>
+            {
+                isAdmin ? <>
+                    <Link id='btn_buy' to={`/delete/${mobile._id}`} >Delete</Link>
+                    <Link id='btn_view' to={`/edit/${mobile._id}`} >Edit</Link>
+                </> :<></>
+            }
+        </div>
     </div>
   );
 };

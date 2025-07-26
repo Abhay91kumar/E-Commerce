@@ -6,6 +6,7 @@ const Mobile = () => {
   const state = useContext(GlobalState);
   const [mobiles] = state.mobileAPI.mobiles;
 
+
   return (
     <div className="mobile-container">
       {mobiles.map(mobile => (

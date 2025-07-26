@@ -50,7 +50,7 @@ const productCtrl = {
                 .filtering()
                 .sorting()
                 .pagination();
-                console.log(req.query)
+            console.log(req.query)
             const products = await features.query
             res.json({ result: products.length, products })
         } catch (err) { return res.status(500).json({ msg: err.message }) }
@@ -63,7 +63,7 @@ const productCtrl = {
             if (product) { return res.status(403).json({ msg: "Product Already Exist" }) }
 
             const newProduct = new Product({
-                product_id, title: title.toLowerCase(), price, description, contain, image, category
+                product_id, title: title, price, description, contain, image, category
 
             })
             await newProduct.save()
@@ -80,13 +80,23 @@ const productCtrl = {
         try {
             const { product_id, title, price, description, contain, image, category } = req.body
             await Product.findByIdAndUpdate({ _id: req.params.id }, {
-                product_id, title: title.toLowerCase(), price, description, contain, image, category
+                product_id, title: title, price, description, contain, image, category
             })
 
 
             res.json({ msg: "Product Updated" })
         } catch (er) { return res.status(500).json({ msg: er.message }) }
-    }
-}
+    },
+    getSingleProduct: async (req, res) => {
+        try {
+            const product = await Product.findById(req.params.id);
+            if (!product) return res.status(404).json({ message: 'Product not found' });
 
+            res.json(product);
+        } catch (err) {
+            return res.status(500).json({ message: err.message });
+        }
+    }
+
+}
 module.exports = productCtrl;

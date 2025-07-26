@@ -29,7 +29,7 @@ const userCtrl = {
 
             const accesstoken = createAccessToken({ id: newUser.id })
             const refreshToken = createRefreshToken({ id: newUser.id })
-            
+
             res.cookie('refreshtoken', refreshToken, {
                 httpOnly: true,
                 path: '/user/refresh_token'
@@ -82,7 +82,7 @@ const userCtrl = {
     },
     logout: async (req, res) => {
         try {
-           res.clearCookie('refreshtoken', { path: '/user/refresh_token' });
+            res.clearCookie('refreshtoken', { path: '/user/refresh_token' });
             return res.json({ msg: ' ✅ Log Out' })
         } catch (err) {
             return res.status(500).json({ msg: err.message })
@@ -99,19 +99,27 @@ const userCtrl = {
         }
     },
     addCart: async (req, res) => {
-    try {
-        const user = await Users.findById(req.user.id);
-        if (!user) return res.status(400).json({ msg: "User does not exist." });
+        try {
+            const user = await Users.findById(req.user.id);
+            if (!user) return res.status(400).json({ msg: "User does not exist." });
 
-        await Users.findOneAndUpdate({ _id: req.user.id }, {
-            cart: req.body.cart
-        });
+            await Users.findOneAndUpdate({ _id: req.user.id }, {
+                cart: req.body.cart
+            });
 
-        return res.json({ msg: "Cart updated" });
-    } catch (err) {
-        return res.status(500).json({ msg: err.message });
+            return res.json({ msg: "Cart updated" });
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
+    addminDetail: async (req, res) => {
+        try {
+            const admin = await Users.findOne();
+            res.json(admin);
+        } catch (err) {
+            res.status(500).json({ msg: 'Server error' });
+        }
     }
-}
 
 }
 
