@@ -7,7 +7,7 @@ const Payment = require('../models/paymentModel');
 const paymentCtrl = {
   createPayment: async (req, res) => {
     try {
-        const user_id = req.user.id;
+      const user_id = req.user.id;
       const { cartItems, address } = req.body;
 
       if (!cartItems || !cartItems.length || !user_id || !address) {
@@ -57,7 +57,20 @@ const paymentCtrl = {
       console.error(err);
       res.status(500).json({ error: err.message });
     }
+  },
+  getPaymentsByUser: async (req, res) => {
+    try {
+      const user_id = req.user.id;
+
+      const payments = await Payment.find({ user_id }).sort({ createdAt: -1 });
+
+      res.json(payments);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Failed to fetch payments' });
+    }
   }
+
 };
 
 module.exports = paymentCtrl;

@@ -13,6 +13,8 @@ import DeleteItem from '../../api/Modifiers/DeleteItem'
 import CreateItem from '../../api/Modifiers/CreateItem';
 import Checkout from '../MainPages/Checkout/Checkout'
 import SingleCheckout from './Checkout/SingleCheckout';
+import OrderHistory from './Utils/OrederHistory';
+import Success from './Checkout/Success';
 
 const Page = () => {
   return (
@@ -30,6 +32,8 @@ const Page = () => {
       <Route path="/edit/:id" element={<EditItem />} />
       <Route path="/delete/:id" element={<DeleteItem />} />
       <Route path="/create_product" element={<CreateItem />} />
+      <Route path='/history' element={<OrderHistory/>} />
+      <Route path='/success' element={<Success/>} />
 
 
     </Routes>

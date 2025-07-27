@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../Css/FinalCss/Checkout.css';
 import CheckoutUI from './CheckoutUI';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
+import { GlobalState } from '../../../GlobalState'; 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -11,6 +12,15 @@ const SingleCheckout = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
+  const globalState = useContext(GlobalState); 
+  const [token] = globalState.token;
+  const [user] = globalState.userAPI.user;
+
+  console.log("Logged in user ID:", user?._id); 
+useEffect(() => {
+
+}, [token, user]);
+  
   const [address, setAddress] = useState({
     street: '',
     city: '',
@@ -32,10 +42,11 @@ const SingleCheckout = () => {
     try {
       const response = await axios.post('/api/payment', {
         cartItems: [state.item],
-        address
+        address,
+        user_id: user._id, 
       }, {
         headers: {
-          Authorization: localStorage.getItem('token')
+          Authorization: token
         }
       });
 
