@@ -8,10 +8,9 @@ const FashionCard = ({ fashion }) => {
 
   return (
     <div className="fashion-card">
-      <Link to=''>
-        <img src={fashion.image?.url} alt={fashion.title} width="100" />
-      </Link>
-
+      {isAdmin ?
+        <><Link id='' to='' > <img src={fashion.image?.url} alt='' width="100" /></Link></>
+        : <><Link id='' to={`/detail/${fashion._id}`} > <img src={fashion.image?.url} alt='' width="100" /></Link></>}
       <div className="fashion-box">
         <h2 title={fashion.title}>{fashion.title}</h2>
         <span>₹ {fashion.price}</span>
@@ -19,13 +18,13 @@ const FashionCard = ({ fashion }) => {
       </div>
 
       <div className='row_btn'>
-            {
-                isAdmin ? <>
-                    <Link id='btn_buy' to={`/delete/${fashion._id}`} >Delete</Link>
-                    <Link id='btn_view' to={`/edit/${fashion._id}`} >Edit</Link>
-                </> :<></>
-            }
-        </div>
+        {
+          isAdmin ? <>
+            <Link id='btn_buy' to={`/delete/${fashion._id}`} >Delete</Link>
+            <Link id='btn_view' to={`/edit/${fashion._id}`} >Edit</Link>
+          </> : <></>
+        }
+      </div>
     </div>
   );
 };

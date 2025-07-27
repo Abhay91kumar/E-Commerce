@@ -9,20 +9,22 @@ const ProductLists = ({ product }) => {
     return (
 
         <div className="product-card">
-            <Link id='' to='' > <img src={product.image?.url} alt='' width="100" /></Link>
+            {isAdmin ?
+                <><Link id='' to='' > <img src={product.image?.url} alt='' width="100" /></Link></>
+                : <><Link id='' to={`/detail/${product._id}`} > <img src={product.image?.url} alt='' width="100" /></Link></>}
             <div className='product_box'>
                 <h2 title={product.title}>{product.title}</h2>
                 <span>₹ {product.price}</span>
                 <p>{product.description}</p>
             </div>
             <div className='row_btn'>
-            {
-                isAdmin ? <>
-                    <Link id='btn_buy' to={`/delete/${product._id}`} >Delete</Link>
-                    <Link id='btn_view' to={`/edit/${product._id}`} >Edit</Link>
-                </> : <></>
-            }
-        </div>
+                {
+                    isAdmin ? <>
+                        <Link id='btn_buy' to={`/delete/${product._id}`} >Delete</Link>
+                        <Link id='btn_view' to={`/edit/${product._id}`} >Edit</Link>
+                    </> : <></>
+                }
+            </div>
         </div >
 
     );

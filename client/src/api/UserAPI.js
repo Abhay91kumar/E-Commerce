@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
+import { jwtDecode } from 'jwt-decode';
 
 const UserAPI = (token) => {
     // console.log("Token ",token)
     const [isLogged, setIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+     const [user, setUser] = useState({});
     const [cart, setCart] = useState(() => {
-    const storedCart = localStorage.getItem('cart');
+        const storedCart = localStorage.getItem('cart');
         return storedCart ? JSON.parse(storedCart) : [];
     });
 
@@ -17,8 +19,14 @@ const UserAPI = (token) => {
                     const res = await axios.get('/user/information', {
                         headers: { Authorization: token }
                     })
+                    setCart(res.data.cart);
                     setIsLogged(true)
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
+
+                     const decoded = jwtDecode(token);
+                    setUser({
+                        id: decoded.id, name: res.data.name, email: res.data.email,
+                    });
 
                 } catch (err) {
                     alert(err.response.data.msg)
@@ -29,18 +37,18 @@ const UserAPI = (token) => {
     }, [token])
 
     useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('cart', JSON.stringify(cart));
 
-    const updateCartToBackend = async () => {
-        if (token) {
-            await axios.patch('/user/addcart', { cart }, {
-                headers: { Authorization: token }
-            });
-        }
-    };
+        const updateCartToBackend = async () => {
+            if (token) {
+                await axios.patch('/user/addcart', { cart }, {
+                    headers: { Authorization: token }
+                });
+            }
+        };
 
-    updateCartToBackend();
-}, [cart,token]);
+        updateCartToBackend();
+    }, [cart, token]);
 
     const addCart = async (product) => {
         if (!isLogged) return alert('Please Login')
@@ -95,6 +103,7 @@ const UserAPI = (token) => {
         isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
         addCart: addCart,
+        user: [user, setUser],
         removeFromCart: removeFromCart,
         increaseQty: increaseQty,
         decreaseQty: decreaseQty

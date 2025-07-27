@@ -14,7 +14,7 @@ const DetailPage = () => {
   const [mobiles] = state.mobileAPI.mobiles;
 
   const [detailData, setDetailData] = useState(null);
-  const [type, setType] = useState(''); // 'product' | 'fashion' | 'mobile'
+  const [type, setType] = useState(''); 
 
   useEffect(() => {
     const foundProduct = products.find(prod => prod._id === params.id);

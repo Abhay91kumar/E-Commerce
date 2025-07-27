@@ -24,7 +24,14 @@ const DetailProducts = ({ product }) => {
           <>
             <div className='row_btn'>
               <Link id='btn-add' to='/cart' onClick={() => addCart(product)}>Add to cart</Link>
-              <Link id='btn_buy' to={`#!`}>Buy Now</Link>
+              <Link id='btn_buy'
+                to={`/checkout/${product._id}`} state={{
+                  item: {
+                    ...product,
+                    quantity: 1,
+                    totalPrice: product.price
+                  }
+                }}> Buy Now</Link>
             </div>
           </>}
       </div>

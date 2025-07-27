@@ -17,8 +17,10 @@ const [user,setUser]=useState({
  const loginSubmit=async(e)=>{
   e.preventDefault();
   try{
-    await axios.post('/user/login',{...user});
+    const res=await axios.post('/user/login',{...user});
+    console.log("Response: ",res.data)
     localStorage.setItem("First Login",true);
+    localStorage.setItem('token', res.data.accesstoken);
     window.location.href="/"
   }catch(err){
     alert(err.response.data.msg)

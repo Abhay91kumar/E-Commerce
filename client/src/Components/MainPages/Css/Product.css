@@ -160,7 +160,7 @@
 }
 
 .cart-total {
-    position: fixed;
+    position: static;
     margin-top: 30px;
     text-align: center;
     padding: 20px;

@@ -11,6 +11,8 @@ import DetailPage from './Utils/DetailPages/DetailPage';
 import EditItem from '../../api/Modifiers/EditItem';
 import DeleteItem from '../../api/Modifiers/DeleteItem'
 import CreateItem from '../../api/Modifiers/CreateItem';
+import Checkout from '../MainPages/Checkout/Checkout'
+import SingleCheckout from './Checkout/SingleCheckout';
 
 const Page = () => {
   return (
@@ -20,6 +22,8 @@ const Page = () => {
       <Route path='/mobile' element={<Moblie />} />
       <Route path='/fashion' element={<Fashion />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/checkout' element={<Checkout />} />
+      <Route path='/checkout/:id' element={<SingleCheckout />} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path="/detail/:id" element={<DetailPage />} />

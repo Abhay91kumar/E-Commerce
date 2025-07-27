@@ -45,7 +45,14 @@ const DetailMobile = ({ mobile }) => {
           <>
             <div className='row_btn'>
               <Link id='btn-add' to='/cart' onClick={() => addCart(mobile)}>Add to cart</Link>
-              <Link id='btn_buy' to={`#!`}>Buy Now</Link>
+              <Link id='btn_buy'
+                to={`/checkout/${mobile._id}`} state={{
+                  item: {
+                    ...mobile,
+                    quantity: 1,
+                    totalPrice: mobile.price
+                  }
+                }}> Buy Now</Link>
             </div>
           </>}
       </div>
