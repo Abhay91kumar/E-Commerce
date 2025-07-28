@@ -4,6 +4,7 @@ import Page from './Components/MainPages/Page'
 import {BrowserRouter as Router } from 'react-router-dom'
 import { DataProvider } from './GlobalState'
 import AdminDetail from './Components/MainPages/AdminDetail'
+import Footer from './Components/Headers/Footer'
 
 
 
@@ -14,7 +15,8 @@ const App = () => {
     <div className='App'>
       <Header/>
       <Page/>
-       <AdminDetail />
+      <AdminDetail />
+      <Footer />
     </div>
     </Router>
     </DataProvider>

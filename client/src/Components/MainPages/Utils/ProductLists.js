@@ -10,7 +10,7 @@ const ProductLists = ({ product }) => {
 
         <div className="product-card">
             {isAdmin ?
-                <><Link id='' to='' > <img src={product.image?.url} alt='' width="100" /></Link></>
+                <><Link id='' to='' > <img src={product.image?.url} alt='' width='100%' /></Link></>
                 : <><Link id='' to={`/detail/${product._id}`} > <img src={product.image?.url} alt='' width="100" /></Link></>}
             <div className='product_box'>
                 <h2 title={product.title}>{product.title}</h2>

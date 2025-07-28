@@ -9,7 +9,7 @@ class APIfeatures {
 
     filtering() {
         const queryObj = { ...this.queryString };
-        console.log("Query before filtering:", queryObj);
+        // console.log("Query before filtering:", queryObj);
 
         const excludeFields = ['page', 'sort', 'limit'];
         excludeFields.forEach(el => delete queryObj[el]);
@@ -17,7 +17,7 @@ class APIfeatures {
         let queryStr = JSON.stringify(queryObj);
         queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, match => `$${match}`);
 
-        console.log("Parsed query:", JSON.parse(queryStr));
+        // console.log("Parsed query:", JSON.parse(queryStr));
 
         this.query = this.query.find(JSON.parse(queryStr));
         return this;
@@ -50,7 +50,7 @@ const productCtrl = {
                 .filtering()
                 .sorting()
                 .pagination();
-            console.log(req.query)
+            // console.log(req.query)
             const products = await features.query
             res.json({ result: products.length, products })
         } catch (err) { return res.status(500).json({ msg: err.message }) }
