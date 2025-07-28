@@ -31,7 +31,7 @@ const EditItem = () => {
             const types = ['product', 'mobile', 'fashion'];
             for (const type of types) {
                 try {
-                    const res = await axios.get(`/api/${type}/${id}`);
+                    const res = await axios.get(`https://e-commerce-2-zt8t.onrender.com/api/${type}/${id}`);
                     if (res.data) {
                         setItem(res.data);
                         setEndpointType(type);
@@ -73,7 +73,7 @@ const EditItem = () => {
         delete payload.item_id;
 
         try {
-            const res = await axios.put(`/api/${endpointType}/${id}`, payload);
+            const res = await axios.put(`https://e-commerce-2-zt8t.onrender.com/api/${endpointType}/${id}`, payload);
             if (res.data) {
                 alert(`${endpointType} updated successfully`);
             }
