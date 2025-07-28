@@ -12,7 +12,7 @@ const AdminDetail = () => {
     if (isAdminDashboard) {
       const fetchAdminData = async () => {
         try {
-          const res = await axios.get('/user/admin');
+          const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/user/admin');
           setAdmin(res.data);
         } catch (err) {
           console.error('Error fetching admin data:', err);
