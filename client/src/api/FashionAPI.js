@@ -7,7 +7,7 @@ const FashionAPI = () => {
 
     const getFashions = async () => {
         try {
-            const res = await axios.get('/api/fashion');
+            const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/api/fashion');
             // console.log('Fashion:', res.data);
             setFashions(res.data.fashions); 
         } catch (err) {
