@@ -31,7 +31,7 @@ const CreateItem = () => {
         delete payload.item_id; 
 
         try {
-            const res = await axios.post(`/api/${type}`, payload);
+            const res = await axios.post(`https://e-commerce-2-zt8t.onrender.com/api/${type}`, payload);
             if (res.data) {
                 alert(`${type} item created successfully`);
             }
