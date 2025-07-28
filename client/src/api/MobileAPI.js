@@ -7,7 +7,7 @@ const MobileAPI = () => {
 
     const getMobiles = async () => {
         try {
-            const res = await axios.get('/api/mobile');
+            const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/api/mobile');
             // console.log('Mobile:', res.data);
             setMobiles(res.data.mobiles); 
         } catch (err) {
