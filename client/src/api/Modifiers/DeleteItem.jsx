@@ -13,7 +13,7 @@ const DeleteItem = () => {
             const types = ['product', 'mobile', 'fashion'];
             for (const type of types) {
                 try {
-                    const res = await axios.get(`/api/${type}/${id}`);
+                    const res = await axios.get(`https://e-commerce-2-zt8t.onrender.com/api/${type}/${id}`);
                     if (res.data) {
                         setItem(res.data);
                         setEndpointType(type);
@@ -34,7 +34,7 @@ const DeleteItem = () => {
         if (!confirmDelete) return;
 
         try {
-            await axios.delete(`/api/${endpointType}/${id}`);
+            await axios.delete(`https://e-commerce-2-zt8t.onrender.com/api/${endpointType}/${id}`);
             alert(`${endpointType} deleted successfully`);
             navigate('/'); // or to admin/items page
         } catch (err) {
