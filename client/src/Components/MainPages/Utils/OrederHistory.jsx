@@ -11,7 +11,7 @@ const OrderHistory = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get('/api/payment/user', {
+        const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/api/payment/user', {
           headers: { Authorization: token }
         });
         setOrders(res.data);
