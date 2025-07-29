@@ -19,13 +19,13 @@ app.listen(Port, () => {
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
-
+*/
 const cors = require('cors');
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://your-frontend.netlify.app'],
+  origin: ['http://localhost:3000', 'https://testing91.netlify.app'],
   credentials: true
 }));
-*/
+
 
 //Router
 app.use('/user', require('./routes/userRouter'))
