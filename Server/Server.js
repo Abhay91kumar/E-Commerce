@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 */
-const cors = require('cors');
+
 app.use(cors({
   origin: ['http://localhost:3000', 'https://testing91.netlify.app'],
   credentials: true
