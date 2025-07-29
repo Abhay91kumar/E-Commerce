@@ -40,7 +40,7 @@ useEffect(() => {
     }
 
     try {
-      const response = await axios.post('/api/payment', {
+      const response = await axios.post('https://e-commerce-2-zt8t.onrender.com/api/payment', {
         cartItems: [state.item],
         address,
         user_id: user._id, 
