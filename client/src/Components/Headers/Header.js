@@ -24,7 +24,7 @@ const Header = () => {
   // console.log("Product Header:", state)
   const logOutUser = async () => {
     try {
-      await axios.get('/user/logout');
+      await axios.get('https://e-commerce-2-zt8t.onrender.com/user/logout');
       localStorage.removeItem('First Login');
       localStorage.removeItem('cart')
       setCart([]);
