@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 */
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://testing91.netlify.app'],
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 
