@@ -13,9 +13,7 @@ export const DataProvider = ({ children }) => {
     // console.log("TokentN",token)
 
     const refreshToken = async () => {
-        const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/user/refresh_token', {
-  withCredentials: true
-})
+        const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/user/refresh_token')
 
         const accessToken = res.data.accesstoken;
         setToken(accessToken);
