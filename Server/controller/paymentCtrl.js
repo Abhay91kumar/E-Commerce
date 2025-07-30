@@ -35,8 +35,8 @@ const paymentCtrl = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: 'https://testing91.netlify.app//success',
-        cancel_url: '/cancel',
+        success_url: 'https://testing91.netlify.app/success',
+        cancel_url: 'https://testing91.netlify.app/cancel',
         metadata: {
           user_id
         }
