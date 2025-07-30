@@ -35,8 +35,8 @@ const paymentCtrl = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: 'http://localhost:3000/success',
-        cancel_url: 'http://localhost:3000/cancel',
+        success_url: '/success',
+        cancel_url: '/cancel',
         metadata: {
           user_id
         }
