@@ -18,12 +18,13 @@ app.listen(Port, () => {
 /*
 app.get('/', (req, res) => {
   res.send('API is running...');
-});
+});*/
 
 
 app.use(cors({
-  origin: 'http://localhost:3000'
-}));*/
+  origin: 'https://testing91.netlify.app',
+  credentials: true
+}));
 
 
 //Router
