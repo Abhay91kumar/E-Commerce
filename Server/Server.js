@@ -17,7 +17,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookiesParser());
-app.use(cors());
+
 
 app.listen(Port, () => {
     console.log('Server is Running....')
