@@ -8,6 +8,12 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 const Port = process.env.PORT || 5000;
 const app = express();
+
+app.use(cors({
+  origin: 'https://testing91.netlify.app',
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(cookiesParser());
 app.use(cors());
@@ -19,12 +25,6 @@ app.listen(Port, () => {
 app.get('/', (req, res) => {
   res.send('API is running...');
 });*/
-
-
-app.use(cors({
-  origin: 'https://testing91.netlify.app',
-  credentials: true
-}));
 
 
 //Router
