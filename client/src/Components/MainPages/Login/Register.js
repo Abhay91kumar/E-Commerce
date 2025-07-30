@@ -20,7 +20,7 @@ const [user,setUser]=useState({
 
   e.preventDefault();
   try{
-    await axios.post('https://e-commerce-2-zt8t.onrender.com/user/register',{...user});
+    await axios.post('https://e-commerce-2-zt8t.onrender.com/user/register',{...user},{ withCredentials: true });
     
     localStorage.setItem('First Register',true);
     window.location.href="/"
