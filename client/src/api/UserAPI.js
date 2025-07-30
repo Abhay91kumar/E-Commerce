@@ -18,7 +18,7 @@ const UserAPI = (token) => {
                 try {
                     const res = await axios.get('https://e-commerce-2-zt8t.onrender.com/user/information', {
                         headers: { Authorization: token }
-                    })
+                    },{ withCredentials: true })
                     setCart(res.data.cart);
                     setIsLogged(true)
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
@@ -43,7 +43,7 @@ const UserAPI = (token) => {
             if (token) {
                 await axios.patch('https://e-commerce-2-zt8t.onrender.com/user/addcart', { cart }, {
                     headers: { Authorization: token }
-                });
+                },{ withCredentials: true });
             }
         };
 
