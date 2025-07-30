@@ -9,8 +9,9 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const Port = process.env.PORT || 5000;
 const app = express();
 
+const allowedOrigin = 'https://testing91.netlify.app';
 app.use(cors({
-  origin: 'https://testing91.netlify.app',
+  origin: allowedOrigin,
   credentials: true
 }));
 
