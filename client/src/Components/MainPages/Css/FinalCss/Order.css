@@ -3,6 +3,10 @@
   margin: 40px auto;
   padding: 20px;
   font-family: 'Segoe UI', sans-serif;
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
 }
 
 .order-history h2 {
